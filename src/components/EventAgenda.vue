@@ -1,5 +1,8 @@
 <template>
-
+<div>
+  {{this.$route.params.organizerSlug}}
+  {{this.$route.params.eventSlug}}
+</div>
 </template>
 
 <script>

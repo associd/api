@@ -1,8 +1,8 @@
 <template>
   <div class="event-list">
     <h2 class="bg-dark text-white">EventList</h2>
-    <ul id="list-group">
-      <a class="event list-group-item m-1" v-for="event in events" :key="event.id">
+    <div id="list-group">
+      <router-link :to="'eventAgenda/' + event.organizer.slug + '/' + event.slug" class="event list-group-item" v-for="event in events" :key="event.id">
         <h4>
           {{ event.name}}
         </h4>
@@ -13,8 +13,8 @@
             {{event.date}}
           </div>
         </div>
-      </a>
-    </ul>
+      </router-link>
+    </div>
   </div>
 
 </template>
@@ -38,13 +38,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
 h2{
   padding: 15px;
 }
 #list-group .event:hover{
   background-color: #343a40;
   color: white;
+}
+.list-group-item{
+  margin: 15px;
+  box-shadow: 2px 2px 4px gray;
+  color: #343a40;
 }
 
 </style>
